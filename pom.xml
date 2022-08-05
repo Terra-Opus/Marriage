@@ -19,11 +19,6 @@
             <id>md5-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
-        <!--PaperMC -->
-        <repository>
-            <id>papermc</id>
-            <url>https://repo.papermc.io/repository/maven-public/</url>
-        </repository>
         <!-- Vault -->
         <repository>
             <id>jitpack.io</id>
@@ -77,13 +72,6 @@
             <groupId>com.github.MilkBowl</groupId>
             <artifactId>VaultAPI</artifactId>
             <version>1.7</version>
-            <scope>provided</scope>
-        </dependency>
-        <!-- PlotSquared Legacy -->
-
-        <dependency>
-            <groupId>com.plotsquared</groupId>
-            <artifactId>PlotSquared-Core</artifactId>
             <scope>provided</scope>
         </dependency>
     </dependencies>
