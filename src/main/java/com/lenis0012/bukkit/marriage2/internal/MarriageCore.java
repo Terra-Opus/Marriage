@@ -69,7 +69,6 @@ public class MarriageCore extends MarriageBase {
         if(Settings.PLOTSQUARED_AUTO_TRUST.value() && Bukkit.getPluginManager().isPluginEnabled("PlotSquared")) {
             Plugin plotSquared = Bukkit.getPluginManager().getPlugin("PlotSquared");
             getLogger().log(Level.INFO, "Detected PlotSquared v" + plotSquared.getDescription().getVersion() + ". Attempting to hook.");
-            hookPlotSquared();
         }
     }
 
@@ -91,28 +90,6 @@ public class MarriageCore extends MarriageBase {
         register(new DatabaseListener(this));
         register(new KissListener(this));
         register(new UpdateListener(this));
-    }
-
-    private void hookPlotSquared() {
-        try {
-            getLogger().log(Level.INFO, "Attempting to hook using PlotSquared v5 API.");
-            Class.forName("com.plotsquared.core.api.PlotAPI");
-            register(new V5PlotSquaredListener());
-            getLogger().log(Level.INFO, "Success! Auto-trust has been enabled.");
-            return;
-        } catch (Exception e) {
-        }
-
-        try {
-            getLogger().log(Level.INFO, "Attempting to hook using PlotSquared legacy API.");
-            Class.forName("com.intellectualcrafters.plot.PS");
-            register(new LegacyPlotSquaredListener());
-            getLogger().log(Level.INFO, "Success! Auto-trust has been enabled.");
-            return;
-        } catch (Exception e) {
-        }
-
-        getLogger().log(Level.WARNING, "Failed to hook with PlotSquared, please use v5 for full support.");
     }
 
     @Register(name = "commands", type = Register.Type.ENABLE)
