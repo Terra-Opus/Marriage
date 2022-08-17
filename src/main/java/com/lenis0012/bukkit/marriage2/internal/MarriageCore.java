@@ -82,7 +82,6 @@ public class MarriageCore extends MarriageBase {
         register(new ChatListener(this));
         register(new DatabaseListener(this));
         register(new KissListener(this));
-        register(new UpdateListener(this));
     }
 
     @Register(name = "commands", type = Register.Type.ENABLE)
@@ -104,8 +103,7 @@ public class MarriageCore extends MarriageBase {
                 CommandReload.class,
                 CommandSeen.class,
                 CommandSethome.class,
-                CommandTeleport.class,
-                CommandUpdate.class
+                CommandTeleport.class
         );
     }
 
